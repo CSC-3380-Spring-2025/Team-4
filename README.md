@@ -1,10 +1,10 @@
-# [Name of the Project] : [Team Number]
+# [HellSkate] : [Team 4]
 # Members
-Project Manager: [Name] ([GitHub Name])\
-Communications Lead: [Name] ([GitHub Name])\
-Git Master: [Name] ([GitHub Name])\
-Design Lead: [Name] ([GitHub Name])\
-Quality Assurance Tester: [Name] ([GitHub Name])
+Project Manager: [Jack Dugan] ([jdugan415])\
+Communications Lead: [Jude Menard] ([JudeMen])\
+Git Master: [Andrew Mallory] ([andrewmallory8])\
+Design Lead: [Aaron Arceneaux] ([Aaron Arceneaux])\
+Quality Assurance Tester: [John Holcomb] ([johnholcomb10])
 
 # About Our Software
 
