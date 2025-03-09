@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hellish_background_0: 1023420520857881652
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
