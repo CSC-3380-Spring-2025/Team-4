@@ -6,7 +6,7 @@ public class SpriteMovement : MonoBehaviour
     public float jumpForce = 12f;  // Jump strength
     private Rigidbody2D rb;
     private bool isGrounded;
-
+    [SerializeField] private Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get Rigidbody2D component
@@ -19,7 +19,12 @@ public class SpriteMovement : MonoBehaviour
 
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
-
+        if(moveX != 0){
+            animator.SetBool("isRunning",true);
+        }
+        else{
+             animator.SetBool("isRunning",false);
+        }
         // Jumping (Space key)
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
