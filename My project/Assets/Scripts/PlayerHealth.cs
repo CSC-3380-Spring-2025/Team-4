@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = health;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame to update health after each hit
     void Update()
     {
         healthmeter.fillAmount = Mathf.Clamp(health / maxHealth,0,1);
