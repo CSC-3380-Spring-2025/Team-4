@@ -8,6 +8,7 @@ public class SpriteMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     [SerializeField] private Animator animator;
+    [SerializeField] GameManager gameManager;
     //health var
     public bool isDead = false;
     void Start()
@@ -68,6 +69,7 @@ public class SpriteMovement : MonoBehaviour
         isDead = true;
         rb.linearVelocity = Vector3.zero;
         Destroy(gameObject);
+        gameManager.GameOver();
     }
 
 }
