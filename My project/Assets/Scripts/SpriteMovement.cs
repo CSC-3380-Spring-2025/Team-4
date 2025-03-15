@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 
 public class SpriteMovement : MonoBehaviour
@@ -7,19 +8,26 @@ public class SpriteMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     [SerializeField] private Animator animator;
+    //health var
+    public bool isDead = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get Rigidbody2D component
+        isGrounded = true;
     }
 
     void Update()
     {
+        if (isDead) {
+            DestroyImmediate(rb);
+            return;
+        }
         // Get left/right input (A/D or Left/Right Arrow)
         float moveX = Input.GetAxis("Horizontal");
 
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
-        if(moveX != 0){
+        if (moveX != 0){
             animator.SetBool("isRunning",true);
         }
         else{
@@ -30,6 +38,10 @@ public class SpriteMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false; // Prevent multiple jumps
+        }
+
+        if (!isDead && (transform.position.y < -6f /*|| health <= 0*/)) {
+            Die();
         }
     }
 
@@ -50,4 +62,12 @@ public class SpriteMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void Die()
+    {
+        isDead = true;
+        rb.linearVelocity = Vector3.zero;
+        Destroy(gameObject);
+    }
+
 }
