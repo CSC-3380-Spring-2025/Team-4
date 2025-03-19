@@ -10,6 +10,7 @@ public class SpriteMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get Rigidbody2D component
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -19,6 +20,8 @@ public class SpriteMovement : MonoBehaviour
 
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
+         animator.SetBool("isSkateboarding",true);
+         animator.SetBool("isCached",false);
         if(moveX != 0){
             animator.SetBool("isRunning",true);
         }
@@ -30,6 +33,16 @@ public class SpriteMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false; // Prevent multiple jumps
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+             animator.SetBool("isSkateboarding",false);
+             animator.SetBool("isCached",false);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+             animator.SetBool("isSkateboarding",true);
+            animator.SetBool("isCached",false);
         }
     }
 
