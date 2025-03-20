@@ -7,6 +7,8 @@ public class SpriteMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     [SerializeField] private Animator animator;
+    [SerializeField] GameManager gameManager;
+    public bool isDead = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get Rigidbody2D component
@@ -15,6 +17,11 @@ public class SpriteMovement : MonoBehaviour
 
     void Update()
     {
+        if (isDead)
+        {
+            DestroyImmediate(rb);
+            return;
+        }
         // Get left/right input (A/D or Left/Right Arrow)
         float moveX = Input.GetAxis("Horizontal");
 
@@ -44,6 +51,11 @@ public class SpriteMovement : MonoBehaviour
              animator.SetBool("isSkateboarding",true);
             animator.SetBool("isCached",false);
         }
+
+        if(!isDead && (transform.position.y < -12f))
+        {
+            Die();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -62,5 +74,13 @@ public class SpriteMovement : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        rb.linearVelocity = Vector3.zero;
+        Destroy(gameObject);
+        gameManager.GameOver();
     }
 }
