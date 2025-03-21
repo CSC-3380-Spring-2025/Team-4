@@ -6,6 +6,8 @@ public class SpriteMovement : MonoBehaviour
     public float jumpForce = 12f;  // Jump strength
     private Rigidbody2D rb;
     private bool isGrounded;
+    private float cooldowntimer;
+    private float cooldown;
     [SerializeField] private Animator animator;
     [SerializeField] GameManager gameManager;
     public bool isDead = false;
@@ -64,6 +66,10 @@ public class SpriteMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (collision.gameObject.CompareTag("SpeedUp"))
+        {
+            SpeedUp(collision);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -81,5 +87,10 @@ public class SpriteMovement : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         Destroy(gameObject);
         gameManager.GameOver();
+    }
+    public void SpeedUp(Collision2D collision){
+        cooldown = cooldowntimer;
+        speed = 30;
+        Destroy(collision.gameObject);
     }
 }
