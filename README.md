@@ -1,10 +1,12 @@
-# Hellskate : Team 14
+Title-Screen
+# [HellSkate] : [Team 4]
 # Members
-Project Manager: Jack Dugan (jdugan145)\
-Communications Lead: Jude Menard (JudeMen)\
-Git Master: Andrew Mallory (andrewmallory8)\
-Design Lead: Aaron Arceneaux (Noraaxu)\
-Quality Assurance Tester: John Holcomb (johnholcomb10)
+Project Manager: [Jack Dugan] ([jdugan415])\
+Communications Lead: [Jude Menard] ([JudeMen])\
+Git Master: [Andrew Mallory] ([andrewmallory8])\
+Design Lead: [Aaron Arceneaux] ([Noraaxu])\
+Quality Assurance Tester: [John Holcomb] ([johnholcomb10])
+main
 
 # About Our Software
 
