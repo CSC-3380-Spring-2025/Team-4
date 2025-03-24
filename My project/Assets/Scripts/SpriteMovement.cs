@@ -24,6 +24,12 @@ public class SpriteMovement : MonoBehaviour
             DestroyImmediate(rb);
             return;
         }
+
+        if (GameManager.isPaused)
+        {
+            return;
+        }
+        
         // Get left/right input (A/D or Left/Right Arrow)
         float moveX = Input.GetAxis("Horizontal");
 
