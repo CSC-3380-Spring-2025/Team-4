@@ -30,6 +30,7 @@ public class SpriteMovement : MonoBehaviour
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
         animator.SetBool("isCached",true);
+        animator.SetBool("isPressed",false);
         if(moveX != 0){
             animator.SetBool("isRunning",true);
         }
@@ -46,6 +47,7 @@ public class SpriteMovement : MonoBehaviour
         {
              animator.SetBool("isSkateboarding",false);
              animator.SetBool("isCached",false);
+             animator.SetBool("isPressed",true);
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
