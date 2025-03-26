@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float maxHealth;
     public Image healthmeter;
+    [SerializeField] GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+            gameManager.GameOver();
         }
     }
 }
