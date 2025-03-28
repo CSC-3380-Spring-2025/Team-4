@@ -25,6 +25,18 @@ public class SpriteMovement : MonoBehaviour
             return;
         }
 
+        if (!isDead && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.isPaused)
+            {
+                gameManager.ResumeGame();
+            }
+            else
+            {
+                gameManager.PauseGame();
+            }
+        }
+
         if (GameManager.isPaused)
         {
             return;

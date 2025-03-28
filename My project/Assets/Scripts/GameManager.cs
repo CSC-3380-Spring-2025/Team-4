@@ -15,17 +15,7 @@ public class GameManager : MonoBehaviour
 
      public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+
     }
 
     public void GameOver() 
@@ -56,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 0f;
+        ResumeGame();
         SceneManager.LoadScene("Main Menu");
     }
 
