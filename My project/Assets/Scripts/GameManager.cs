@@ -5,32 +5,25 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public GameObject pauseGamePanel;
+    public GameObject healthBar;
     private SpriteMovement player;
     public static bool isPaused = false;
     public void Start()
     {
         gameOverPanel.gameObject.SetActive(false);
         pauseGamePanel.gameObject.SetActive(false);
+        healthBar.gameObject.SetActive(true);
     }
 
      public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+
     }
 
     public void GameOver() 
     {
         //Calc score
+        healthBar.SetActive(false);
         gameOverPanel.SetActive(true);
     }
 
@@ -56,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 0f;
+        ResumeGame();
         SceneManager.LoadScene("Main Menu");
     }
 
