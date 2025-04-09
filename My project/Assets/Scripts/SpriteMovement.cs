@@ -110,7 +110,7 @@ public class SpriteMovement : MonoBehaviour
     }
     public void SpeedUp(Collision2D collision){
         cooldown = cooldowntimer;
-        speed = 30;
+        speed = 10;
         Destroy(collision.gameObject);
     }
 }
