@@ -7,8 +7,6 @@ TagManager:
   - Ground
   - Weak Point
   - SpeedUp
-  - Enemy
-  - HealthUp
   layers:
   - Default
   - TransparentFX

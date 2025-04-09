@@ -23,13 +23,4 @@ public class PlayerHealth : MonoBehaviour
             gameManager.GameOver();
         }
     }
-     void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("HealthUp"))
-        {
-           maxHealth = health * 2;
-           health = maxHealth;
-           Destroy(collision.gameObject);
-        }
-    }
 }
