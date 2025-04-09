@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class Enemy_Health : MonoBehaviour
 {
-    public float health;
+   public float health;
     public float maxHealth;
     public Image healthmeter;
     [SerializeField] GameManager gameManager;
@@ -20,16 +20,6 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
-            gameManager.GameOver();
-        }
-    }
-     void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("HealthUp"))
-        {
-           maxHealth = health * 2;
-           health = maxHealth;
-           Destroy(collision.gameObject);
         }
     }
 }
