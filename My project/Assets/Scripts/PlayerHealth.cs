@@ -13,6 +13,12 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = health;
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    
+    }
+
     // Update is called once per frame to update health after each hit
     void Update()
     {
