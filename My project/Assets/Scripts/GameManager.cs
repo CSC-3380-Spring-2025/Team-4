@@ -6,13 +6,13 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject pauseGamePanel;
     public GameObject healthBar;
-    private SpriteMovement player;
     public static bool isPaused = false;
     public void Start()
     {
         gameOverPanel.gameObject.SetActive(false);
         pauseGamePanel.gameObject.SetActive(false);
         healthBar.gameObject.SetActive(true);
+        ResumeGame();
     }
 
      public void Update()
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        ResumeGame();
         SceneManager.LoadScene("Main Menu");
     }
 

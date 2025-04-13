@@ -11,6 +11,7 @@ public class TitleSoundController : MonoBehaviour
 
     void Start()
     {
+        startText.gameObject.SetActive(false);
         StartCoroutine(PlaySoundsAndShowText());
     }
 
