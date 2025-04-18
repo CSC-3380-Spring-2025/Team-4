@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maxHealth = health;
+        if (maxHealth <= 0) maxHealth = health;
     }
 
     public void TakeDamage(int damage)
