@@ -111,6 +111,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -259,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grount Grunt Light Walking Sprite Sheet (1)_0: -2723497453952828278
+      Grount Grunt Light Walking Sprite Sheet (1)_1: 6358740816403164536
+      Grount Grunt Light Walking Sprite Sheet (1)_2: 5196769525136947875
+      Grount Grunt Light Walking Sprite Sheet (1)_3: 7476862054775471762
+      Grount Grunt Light Walking Sprite Sheet (1)_4: 2448258737996344936
+      Grount Grunt Light Walking Sprite Sheet (1)_5: 3232264889158741007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
+    [SerializeField] Animator transitionAnim;
 
     private void Awake()
     {
@@ -17,13 +19,31 @@ public class SceneController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void LoadNextLevel()
+    public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadNextLevel());
+    }
+
+    public void SpecifiedLevel(string sceneName)
+    {
+        StartCoroutine(LoadSpecifiedLevel(sceneName));
     }
     
-    public void LoadScene(string sceneName)
+    IEnumerator LoadSpecifiedLevel(string sceneName)
     {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneName);
+        yield return new WaitForSeconds(1);
+        transitionAnim.SetTrigger("Start");
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return new WaitForSeconds(1);
+        transitionAnim.SetTrigger("Start");
     }
 }
