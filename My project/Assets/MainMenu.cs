@@ -1,14 +1,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   public void PlayGame()
-   {
-        SceneManager.LoadSceneAsync("Level 1");
-   }
-     public void QuitGame()
-     {
-          Application.Quit();
-     }
+
+    public GameObject levelOneButton;
+    public GameObject levelTwoButton;
+    public GameObject levelThreeButton;
+    
+    //[SerializeField] string goToLevelName;
+
+    public void LevelOne()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void LevelTwo()
+    {
+        SceneManager.LoadSceneAsync(3);
+    }
+
+    public void LevelThree()
+    {
+        SceneManager.LoadSceneAsync(4);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
