@@ -2,29 +2,30 @@ using UnityEngine;
 
 public class MonsterStomp : MonoBehaviour
 {
-    public float bounceForce = 10f;
+    public float bounceForce = 12f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collision is with the "Players feet"
-        if (collision.gameObject.CompareTag("Players feet"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // Bounce the player
-            Rigidbody2D playerRb = collision.gameObject.GetComponentInParent<Rigidbody2D>();
-            if (playerRb != null)
+            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            if (playerRb != null && playerRb.linearVelocity.y <= 0)
             {
+                // Disable MonsterDamage temporarily
+                MonsterDamage bodyDamage = transform.parent.GetComponent<MonsterDamage>();
+                if (bodyDamage != null)
+                {
+                    bodyDamage.hasBeenStomped = true;
+                }
+
+                // Destroy enemy
+                Destroy(transform.parent.gameObject);
+
+                // Bounce the player upward
                 playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
+                Debug.Log("Stomp success!");
             }
-
-            // Optional: disable all enemy colliders before death
-            Collider2D[] colliders = transform.parent.GetComponentsInChildren<Collider2D>();
-            foreach (Collider2D col in colliders)
-            {
-                col.enabled = false;
-            }
-
-            // Destroy the enemy
-            Destroy(transform.parent.gameObject, 0.05f);
         }
     }
 }
