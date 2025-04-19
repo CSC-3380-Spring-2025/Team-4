@@ -50,7 +50,7 @@ public class TitleSoundController : MonoBehaviour
     void Update() {
     if (startText != null && startText.gameObject.activeSelf && Input.anyKeyDown) {
         StopAllCoroutines();
-        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+        SceneController.instance.NextLevel();
         }
     }
 }

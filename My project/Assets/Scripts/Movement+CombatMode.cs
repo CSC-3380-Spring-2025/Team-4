@@ -51,7 +51,7 @@ public class CombatMode : MonoBehaviour
         //HandleAnimatorInput();
         Move();
 
-        if (transform.position.y < -12f) Die();
+        if (transform.position.y < 36f) Die();
     }
 
     private void HandlePauseInput()

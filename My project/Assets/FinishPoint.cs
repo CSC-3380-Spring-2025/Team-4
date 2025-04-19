@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
-    public Transform playerTransform; // Assign this in the Inspector
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] bool goToNextLevel;
+    [SerializeField] string goToLevelName;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform == playerTransform)
+        if (collision.CompareTag("Player"))
         {
-            SceneController.instance.LoadNextLevel();
+            if (goToNextLevel) {
+                SceneController.instance.NextLevel();
+            }
+            else
+            {
+                SceneController.instance.SpecifiedLevel(goToLevelName);
+            }
         }
     }
 }
