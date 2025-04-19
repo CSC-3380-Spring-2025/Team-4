@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatMode : MonoBehaviour
@@ -19,7 +18,7 @@ public class CombatMode : MonoBehaviour
 
     private Rigidbody2D rb;
     private float currentSpeed;
-    
+
     private bool isGrounded;
     private float cooldown;
 
@@ -49,7 +48,7 @@ public class CombatMode : MonoBehaviour
         HandleModeSwitch();
         HandleAttack();
         HandleJump();
-        HandleAnimatorInput();
+        //HandleAnimatorInput();
         Move();
 
         if (transform.position.y < -12f) Die();
@@ -125,11 +124,11 @@ public class CombatMode : MonoBehaviour
     }
 
     private void Move()
-{
-    float moveX = Input.GetAxis("Horizontal");
-    rb.linearVelocity = new Vector2(moveX * currentSpeed, rb.linearVelocity.y);
-}
-
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        Debug.Log("moveX: " + moveX); // Debug to check if input is detected
+        rb.linearVelocity = new Vector2(moveX * currentSpeed, rb.linearVelocity.y);
+    }
 
     public void Die()
     {
@@ -168,7 +167,7 @@ public class CombatMode : MonoBehaviour
 
     private void SpeedUp(Collision2D collision)
     {
-        cooldown = Time.time + 5f; // Adjust as needed
+        cooldown = Time.time + 5f;
         skateboardSpeed = 30f;
         Destroy(collision.gameObject);
     }

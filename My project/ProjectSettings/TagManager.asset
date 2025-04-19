@@ -9,16 +9,17 @@ TagManager:
   - SpeedUp
   - Enemy
   - HealthUp
+  - EnemyHead
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 1
-  - 
-  - 
+  - EnemyHead
+  - Enemy
   - 
   - 
   - 

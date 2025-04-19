@@ -1,14 +1,14 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Transform playerTransform; // Assign this in the Inspector
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.transform == playerTransform)
         {
             SceneController.instance.LoadNextLevel();
         }
     }
-
 }
