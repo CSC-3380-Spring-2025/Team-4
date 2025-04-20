@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 589393144627105508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.23, y: 1, z: 0}
+  m_LocalPosition: {x: 1.13, y: 0.21, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1481827359698735902}
   - component: {fileID: 3317717012355487085}
   - component: {fileID: 7109231703648795513}
+  - component: {fileID: 2017978695097640657}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Weak Point
@@ -156,7 +157,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 30
   m_LinearDamping: 5
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0.02
   m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -206,14 +207,14 @@ BoxCollider2D:
   m_Offset: {x: 1.2511139, y: -0.38943672}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.49999985, y: 0.33999968}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3584137, y: 0.9852867}
+  m_Size: {x: 1.3, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &7109231703648795513
 MonoBehaviour:
@@ -231,6 +232,28 @@ MonoBehaviour:
   knockbackDistance: 5
   enemyRecoilDistance: 2
   hasBeenStomped: 0
+--- !u!95 &2017978695097640657
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058508189740721348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b116385954b36dd42921c9904d93f9fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7132309031685947006
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +321,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -15.926937, y: 0.041656494}
+  m_Offset: {x: -16, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -308,7 +331,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9625778, y: 0.92484283}
+  m_Size: {x: 1.1, y: 0.92484283}
   m_EdgeRadius: 0
 --- !u!114 &3695724577838582620
 MonoBehaviour:
