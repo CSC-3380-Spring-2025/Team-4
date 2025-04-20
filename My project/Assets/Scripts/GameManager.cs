@@ -3,24 +3,65 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public GameObject gameOverPanel;
     public GameObject pauseGamePanel;
     public GameObject healthBar;
+
     public static bool isPaused = false;
-    public static GameManager instance;
 
     private void Awake()
     {
-        // Singleton pattern to make sure only one GameManager exists
-        if (instance == null)
+        instance = this;
+    }
+
+    private void Start()
+    {
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        if (pauseGamePanel != null) pauseGamePanel.SetActive(false);
+        if (healthBar != null) healthBar.SetActive(true);
+
+        ResumeGame();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: keep between scenes
+            if (pauseGamePanel == null) return;
+
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseGame();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    public void GameOver()
+    {
+        if (healthBar != null) healthBar.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void PauseGame()
+    {
+        if (pauseGamePanel != null) pauseGamePanel.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        if (pauseGamePanel != null) pauseGamePanel.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     public void LoadNextLevel()
@@ -34,45 +75,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No more levels to load!");
         }
-    }
-    public void Start()
-    {
-        gameOverPanel.gameObject.SetActive(false);
-        pauseGamePanel.gameObject.SetActive(false);
-        healthBar.gameObject.SetActive(true);
-        ResumeGame();
-    }
-
-     public void Update()
-    {
-
-    }
-
-    public void GameOver() 
-    {
-        //Calc score
-        healthBar.SetActive(false);
-        gameOverPanel.SetActive(true);
-    }
-
-    public void RestartGame()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-
-    public void PauseGame()
-    {
-        pauseGamePanel.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
-    }
-
-    public void ResumeGame()
-    {
-        pauseGamePanel.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
     }
 
     public void GoToMainMenu()
