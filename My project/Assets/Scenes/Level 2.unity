@@ -1468,6 +1468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1925885723}
     - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
       propertyPath: fireballSpeed
       value: 8
       objectReference: {fileID: 0}
@@ -1536,6 +1540,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1925885723}
+    - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
       propertyPath: fireballSpeed
       value: 8
@@ -3745,6 +3753,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1925885723}
+    - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5453327981501770343, guid: 5ce4b4b7da1f9ca4fa51a34bc7d6f1e0, type: 3}
       propertyPath: fireballSpeed
       value: 8
