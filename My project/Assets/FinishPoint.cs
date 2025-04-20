@@ -2,20 +2,11 @@ using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
-
-    [SerializeField] bool goToNextLevel;
-    [SerializeField] string goToLevelName;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (goToNextLevel) {
-                SceneController.instance.NextLevel();
-            }
-            else
-            {
-                SceneController.instance.SpecifiedLevel(goToLevelName);
-            }
+            GameManager.instance.LoadNextLevel();
         }
     }
 }
