@@ -7,13 +7,14 @@ public class CombatMode : MonoBehaviour
     public float combatSpeed = 4f;
     public float skateboardJumpForce = 12f;
     public float combatJumpForce = 4f;
+    public Animator animator;
 
     [Header("State")]
     public bool inCombatMode = false;
     public bool isDead = false;
 
     [Header("References")]
-    [SerializeField] private Animator animator;
+    
     [SerializeField] private GameManager gameManager;
 
     private Rigidbody2D rb;
@@ -42,6 +43,7 @@ public class CombatMode : MonoBehaviour
         }
 
         HandlePauseInput();
+
 
         if (GameManager.isPaused) return;
 
@@ -128,6 +130,7 @@ public class CombatMode : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         Debug.Log("moveX: " + moveX); // Debug to check if input is detected
         rb.linearVelocity = new Vector2(moveX * currentSpeed, rb.linearVelocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
     public void Die()
