@@ -17,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
         if (maxHealth <= 0) maxHealth = health;
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
     public void TakeDamageWithKnockback(int damage, Vector2 hitFromDirection, float distance)
     {
         if (Time.time - lastDamageTime < damageCooldown)
