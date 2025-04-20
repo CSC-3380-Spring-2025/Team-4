@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 31cf0cc1714fc49f9b7757df6eb27297
+guid: 2abec651136bd4cea8d31f8a7f62eeda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2723497453952828278
-    second: Grount Grunt Light Walking Sprite Sheet (1)_0
+      213: -100376960539978381
+    second: Revised Final Boss Sprite Sheet (1)_0
   - first:
-      213: 6358740816403164536
-    second: Grount Grunt Light Walking Sprite Sheet (1)_1
+      213: 2407638575581380423
+    second: Revised Final Boss Sprite Sheet (1)_1
   - first:
-      213: 5196769525136947875
-    second: Grount Grunt Light Walking Sprite Sheet (1)_2
+      213: 518559200545698897
+    second: Revised Final Boss Sprite Sheet (1)_2
   - first:
-      213: 7476862054775471762
-    second: Grount Grunt Light Walking Sprite Sheet (1)_3
-  - first:
-      213: 2448258737996344936
-    second: Grount Grunt Light Walking Sprite Sheet (1)_4
-  - first:
-      213: 3232264889158741007
-    second: Grount Grunt Light Walking Sprite Sheet (1)_5
+      213: 3031997342216066409
+    second: Revised Final Boss Sprite Sheet (1)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,150 +105,93 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_0
+      name: Revised Final Boss Sprite Sheet (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8cf57ece71343ad0800000000000000
-      internalID: -2723497453952828278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87dec7c1519ce3850800000000000000
-      internalID: 6358740816403164536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3aafc557952ae1840800000000000000
-      internalID: 5196769525136947875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29e3d79bc6623c760800000000000000
-      internalID: 7476862054775471762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 86ea48cc956f9f120800000000000000
-      internalID: 2448258737996344936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grount Grunt Light Walking Sprite Sheet (1)_5
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 32
-        height: 32
+        width: 77
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0c264a9acf4bdc20800000000000000
-      internalID: 3232264889158741007
+      spriteID: 375916bafa36b9ef0800000000000000
+      internalID: -100376960539978381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Revised Final Boss Sprite Sheet (1)_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1
+        width: 75
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f3e0d3786a96120800000000000000
+      internalID: 2407638575581380423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Revised Final Boss Sprite Sheet (1)_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1
+        width: 77
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154798f68da423700800000000000000
+      internalID: 518559200545698897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Revised Final Boss Sprite Sheet (1)_3
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96597beb481d31a20800000000000000
+      internalID: 3031997342216066409
       vertices: []
       indices: 
       edges: []
@@ -263,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7ee6d7153439847c8a2682dd1ca79b18
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -272,13 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Grount Grunt Light Walking Sprite Sheet (1)_0: -2723497453952828278
-      Grount Grunt Light Walking Sprite Sheet (1)_1: 6358740816403164536
-      Grount Grunt Light Walking Sprite Sheet (1)_2: 5196769525136947875
-      Grount Grunt Light Walking Sprite Sheet (1)_3: 7476862054775471762
-      Grount Grunt Light Walking Sprite Sheet (1)_4: 2448258737996344936
-      Grount Grunt Light Walking Sprite Sheet (1)_5: 3232264889158741007
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
