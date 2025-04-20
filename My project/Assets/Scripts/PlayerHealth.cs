@@ -14,9 +14,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        if (maxHealth <= 0) maxHealth = health;
+    if (maxHealth <= 0) maxHealth = health;
+    healthmeter.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
     }
-
     public void TakeDamage(int damage)
     {
         health -= damage;
