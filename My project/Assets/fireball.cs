@@ -28,7 +28,7 @@ public class Fireball : MonoBehaviour
             PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamageWithKnockback(damage, transform.right, 5f);
+                playerHealth.TakeDamageWithKnockback(damage, transform.right, 2.5f);
             }
 
             Destroy(gameObject);
