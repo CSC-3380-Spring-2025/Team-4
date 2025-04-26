@@ -231,7 +231,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0026888102, y: 0.0039850175}
+  m_Offset: {x: -0.0026888102, y: -0.0053500086}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -241,7 +241,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2719287, y: 0.3177824}
+  m_Size: {x: 0.2719287, y: 0.2991509}
   m_EdgeRadius: 0
 --- !u!114 &4650996557722513924
 MonoBehaviour:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolSpeed: 2
   chaseSpeed: 5
-  detectionRange: 30
+  detectionRange: 10
   pointA: {fileID: 0}
   pointB: {fileID: 0}
   player: {fileID: 0}
