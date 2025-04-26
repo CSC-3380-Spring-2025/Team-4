@@ -187,7 +187,7 @@ MonoBehaviour:
   detectionRange: 30
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 7263374676861366475, guid: a46af2f60c979c446a2b4871d0068ef6, type: 3}
 --- !u!50 &5915829809300672160
 Rigidbody2D:
   serializedVersion: 5
