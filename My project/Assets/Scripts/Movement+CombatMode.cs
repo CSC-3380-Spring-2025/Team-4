@@ -97,6 +97,7 @@ public class CombatMode : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeDamage(1);
+                    gameManager.AddPoints(10);
                     Debug.Log("Hit enemy!");
                 }
             }
