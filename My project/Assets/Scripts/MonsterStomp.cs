@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerStomp : MonoBehaviour
 {
     public float bounceForce = 2f; // Adjust for jump height
-    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,7 +18,6 @@ public class PlayerStomp : MonoBehaviour
             // Destroy the enemy (assuming the weak point is a child of the enemy root)
             GameObject enemy = collision.transform.parent.gameObject;
             Destroy(enemy);
-            
         }
     }
 }

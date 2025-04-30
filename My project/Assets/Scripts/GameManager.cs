@@ -1,5 +1,3 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,10 +9,6 @@ public class GameManager : MonoBehaviour
     public GameObject pauseGamePanel;
     public GameObject healthBar;
 
- 
-    [SerializeField] private TMP_Text pointsText;
-
-    private float points;
     public static bool isPaused = false;
 
     private void Awake()
@@ -91,12 +85,5 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void AddPoints(float pointsToAdd)
-    {
-        points += pointsToAdd;
-        pointsText.text = points.ToString();
-
     }
 }
