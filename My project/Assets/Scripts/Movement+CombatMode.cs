@@ -9,17 +9,19 @@ public class CombatMode : MonoBehaviour
     public float combatJumpForce = 4f;
     public Animator animator;
 
+    [Header("Attack Components")]
+    public GameObject attackPoint;
+    public float radius;
+    public LayerMask enemies;
+
     [Header("State")]
     public bool inCombatMode = false;
     public bool isDead = false;
 
     [Header("References")]
-    
     [SerializeField] private GameManager gameManager;
-
     private Rigidbody2D rb;
     private float currentSpeed;
-
     private bool isGrounded;
     private float cooldown;
 
@@ -27,7 +29,6 @@ public class CombatMode : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) Debug.LogError("Missing Rigidbody2D!");
-
         if (animator == null) animator = GetComponent<Animator>();
         if (animator == null) Debug.LogWarning("Missing Animator!");
 
@@ -67,9 +68,10 @@ public class CombatMode : MonoBehaviour
 
     private void HandleModeSwitch()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && isGrounded)
         {
             inCombatMode = !inCombatMode;
+            animator.SetBool("CombatModeOn", inCombatMode);
             currentSpeed = inCombatMode ? combatSpeed : skateboardSpeed;
             Debug.Log("Combat Mode: " + inCombatMode);
         }
@@ -90,16 +92,8 @@ public class CombatMode : MonoBehaviour
     {
         if (inCombatMode && Input.GetKeyDown(KeyCode.Z))
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
-            foreach (Collider2D hit in hits)
-            {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(1);
-                    Debug.Log("Hit enemy!");
-                }
-            }
+            animator.SetTrigger("Attack");
+            
         }
     }
 
@@ -174,4 +168,21 @@ public class CombatMode : MonoBehaviour
         skateboardSpeed = 30f;
         Destroy(collision.gameObject);
     }
+
+    public void PerformAttack()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+                Debug.Log("Hit enemy: " + hit.name);
+            }
+        }
+    }
+
+   
 }
