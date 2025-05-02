@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 4613145834093478142}
   - component: {fileID: 1895109616826512366}
   - component: {fileID: 634779756932755908}
-  - component: {fileID: 2225904395138318832}
-  - component: {fileID: 8722242733329966265}
   - component: {fileID: 722155299052154906}
   m_Layer: 3
   m_Name: Player 1
@@ -232,40 +230,15 @@ MonoBehaviour:
   skateboardJumpForce: 12
   combatJumpForce: 4
   animator: {fileID: 0}
+  attackPointRight: {fileID: 0}
+  attackPointLeft: {fileID: 0}
+  radius: 0
+  enemies:
+    serializedVersion: 2
+    m_Bits: 0
   inCombatMode: 0
   isDead: 0
   gameManager: {fileID: 0}
---- !u!114 &2225904395138318832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3031745541200291947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13609202714de4f4e8b401f20e13e017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 12
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
-  isDead: 0
---- !u!114 &8722242733329966265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3031745541200291947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3017b70edcc61341a46d796e1bfd23f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 12
 --- !u!95 &722155299052154906
 Animator:
   serializedVersion: 7

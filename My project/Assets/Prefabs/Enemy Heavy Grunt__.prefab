@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 4650996557722513924}
   - component: {fileID: 4305589050309683594}
   - component: {fileID: 8779349490430301108}
+  - component: {fileID: 4186456385051824874}
   m_Layer: 8
   m_Name: Enemy Heavy Grunt__
   m_TagString: Enemy
@@ -255,9 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc533b38d4f1aa4d8c8cd1ff2a4efde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
-  knockbackDistance: 6
-  enemyRecoilDistance: 1
+  damage: 10
+  knockbackDistance: 3
+  enemyRecoilDistance: 2
 --- !u!212 &4305589050309683594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -326,8 +327,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 2
-  chaseSpeed: 5
-  detectionRange: 10
+  chaseSpeed: 3.5
+  detectionRange: 12
   pointA: {fileID: 0}
   pointB: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &4186456385051824874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158736049473216314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87caf38182628d946a177efb441aef46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
