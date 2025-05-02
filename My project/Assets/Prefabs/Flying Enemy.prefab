@@ -135,7 +135,7 @@ MonoBehaviour:
   player: {fileID: 0}
   attackRange: 7
   fireballSpeed: 5
-  attackCooldown: 2
+  attackCooldown: 4
 --- !u!1 &6271205243626358914
 GameObject:
   m_ObjectHideFlags: 0

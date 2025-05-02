@@ -10,7 +10,9 @@ public class CombatMode : MonoBehaviour
     public Animator animator;
 
     [Header("Attack Components")]
-    public GameObject attackPoint;
+    public GameObject attackPointRight;
+    public GameObject attackPointLeft;
+    private GameObject currentAttackPoint;
     public float radius;
     public LayerMask enemies;
 
@@ -21,6 +23,7 @@ public class CombatMode : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameManager gameManager;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private float currentSpeed;
     private bool isGrounded;
     private float cooldown;
@@ -31,6 +34,10 @@ public class CombatMode : MonoBehaviour
         if (rb == null) Debug.LogError("Missing Rigidbody2D!");
         if (animator == null) animator = GetComponent<Animator>();
         if (animator == null) Debug.LogWarning("Missing Animator!");
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         currentSpeed = skateboardSpeed;
     }
@@ -125,6 +132,17 @@ public class CombatMode : MonoBehaviour
         Debug.Log("moveX: " + moveX); // Debug to check if input is detected
         rb.linearVelocity = new Vector2(moveX * currentSpeed, rb.linearVelocity.y);
         animator.SetFloat("Speed", Mathf.Abs(moveX));
+
+        if (moveX < 0)
+        {
+            spriteRenderer.flipX = true;
+            currentAttackPoint = attackPointLeft;
+        }
+        else if (moveX > 0)
+        {
+            spriteRenderer.flipX = false;
+            currentAttackPoint = attackPointRight;
+        }
     }
 
     public void Die()
@@ -171,7 +189,9 @@ public class CombatMode : MonoBehaviour
 
     public void PerformAttack()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+        if (currentAttackPoint == null) return;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(currentAttackPoint.transform.position, radius, enemies);
 
         foreach (Collider2D hit in hits)
         {
