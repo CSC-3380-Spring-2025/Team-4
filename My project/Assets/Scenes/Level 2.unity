@@ -67984,6 +67984,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6216960767382599415, guid: 95e70efa71d228748bb923f57f2e3952, type: 3}
+      propertyPath: m_text
+      value: 'Controls:
+
+        Up - W/Up Arrow
+
+        Down - S/Down Arrow
+
+        Left
+        - A/Left Arrow
+
+        Right - D/Right Arrow
+
+        Jump - Spacebar
+
+        Enter/Exit
+        Combat Mode - X
+
+        Attack (in Combat Mode) - Z
+
+        Pause Game
+        - Esc'
+      objectReference: {fileID: 0}
     - target: {fileID: 8677908899264267233, guid: 95e70efa71d228748bb923f57f2e3952, type: 3}
       propertyPath: m_Name
       value: Managers

@@ -2578,7 +2578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6797826671146178614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2720,9 +2720,9 @@ MonoBehaviour:
     Jump - Spacebar
 
     Enter/Exit Combat
-    Mode - C
+    Mode - X
 
-    Attack (in Combat Mode) - X
+    Attack (in Combat Mode) - Z
 
     Pause Game - Esc'
   m_isRightToLeft: 0

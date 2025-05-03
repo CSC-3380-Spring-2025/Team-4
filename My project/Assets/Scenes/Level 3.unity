@@ -785,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5415b6094701d3549ae047045ac872c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 808609632}
   bounceForce: 12
   stompDamage: 2
 --- !u!61 &810293505

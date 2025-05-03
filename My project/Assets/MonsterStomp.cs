@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MonsterStomp : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     public float bounceForce = 12f;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,6 +20,8 @@ public class MonsterStomp : MonoBehaviour
                 {
                     bodyDamage.hasBeenStomped = true;
                 }
+
+                gameManager.AddPoints(5);
 
                 // Destroy enemy
                 Destroy(transform.parent.gameObject);
