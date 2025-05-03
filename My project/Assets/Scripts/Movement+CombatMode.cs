@@ -200,6 +200,7 @@ public class CombatMode : MonoBehaviour
             {
                 enemy.TakeDamage(1);
                 Debug.Log("Hit enemy: " + hit.name);
+                gameManager.AddPoints(10);
             }
         }
     }

@@ -6,7 +6,7 @@ public class Enemy_Health : MonoBehaviour
    public float health;
     public float maxHealth;
     public Image healthmeter;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +19,7 @@ public class Enemy_Health : MonoBehaviour
         healthmeter.fillAmount = Mathf.Clamp(health / maxHealth,0,1);
         if(health <= 0)
         {
+            gameManager.AddPoints(100);
             Destroy(gameObject);
         }
     }

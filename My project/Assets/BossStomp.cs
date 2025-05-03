@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BossStomp : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     public float bounceForce = 12f;
     public int stompDamage = 1;
 
@@ -21,6 +23,7 @@ public class BossStomp : MonoBehaviour
                 if (bossHealth != null)
                 {
                     bossHealth.TakeDamage(stompDamage);
+                    gameManager.AddPoints(40);
                     Debug.Log("Boss stomped!");
                 }
             }

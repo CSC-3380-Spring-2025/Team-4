@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
+
+    [SerializeField] private GameManager gameManager;
     public int MaxHealth => maxHealth;
     public int CurrentHealth => currentHealth;
 
@@ -27,6 +29,7 @@ public class BossHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Boss defeated!");
+        gameManager.AddPoints(1000);
         Destroy(gameObject); // You can trigger animations or events here instead
     }
 }
