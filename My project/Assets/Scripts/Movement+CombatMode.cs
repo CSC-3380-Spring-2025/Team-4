@@ -5,7 +5,7 @@ public class CombatMode : MonoBehaviour
     [Header("Movement")]
     public float skateboardSpeed = 10f;
     public float combatSpeed = 4f;
-    public float skateboardJumpForce = 12f;
+    public float skateboardJumpForce = 20f;
     public float combatJumpForce = 4f;
     public Animator animator;
 
