@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
-    public GameObject fireballPrefab;
-    public Transform firePoint;
-    public Transform player;
-    public float attackRange = 7f;
-    public float fireballSpeed = 5f;
-
-    public float normalAttackCooldown = 2f;
-    public float fastAttackCooldown = 1f;
-    public int normalFireballCount = 1;
-    public int fastFireballCount = 3;
-    public float spreadAngle = 30f; // Angle range for multiple fireballs
-
-    private float attackTimer = 0f;
+    
+    private GameObject fireballPrefab;
+    private Transform firePoint;
+    private Transform player;
     private BossPatrol bossPatrol;
+
+    private float attackRange = 7f;
+    private float fireballSpeed = 5f;
+
+    private float normalAttackCooldown = 2f;
+    private float fastAttackCooldown = 1f;
+    private int normalFireballCount = 1;
+    private int fastFireballCount = 3;
+    private float spreadAngle = 30f;
+    private float attackTimer = 0f;
 
     void Start()
     {
@@ -28,7 +29,10 @@ public class BossAttack : MonoBehaviour
 
     void Update()
     {
-        if (player == null || bossPatrol == null) return;
+        if (player == null || bossPatrol == null) 
+        {
+            return;
+        }
 
         attackTimer += Time.deltaTime;
 
@@ -45,12 +49,10 @@ public class BossAttack : MonoBehaviour
     }
 
     void Attack()
-
     {
         Debug.Log("Boss is attacking!");
 
         int fireballCount = bossPatrol.IsSpeedingUp() ? fastFireballCount : normalFireballCount;
-
         if (fireballCount == 1)
         {
             ShootFireball((player.position - firePoint.position).normalized);
@@ -79,4 +81,5 @@ public class BossAttack : MonoBehaviour
             rb.linearVelocity = direction * fireballSpeed;
         }
     }
+
 }
