@@ -1,23 +1,35 @@
 using UnityEngine;
 
-public class PlayerStomp : MonoBehaviour
+public class MonsterStomp : MonoBehaviour
 {
-    public float bounceForce = 2f; // Adjust for jump height
+    [SerializeField] private GameManager gameManager;
+
+    public float bounceForce = 12f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Weak Point"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // Bounce the player
-            Rigidbody2D playerRb = GetComponentInParent<Rigidbody2D>();
-            if (playerRb != null)
-            {
-                playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
-            }
+            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            // Destroy the enemy (assuming the weak point is a child of the enemy root)
-            GameObject enemy = collision.transform.parent.gameObject;
-            Destroy(enemy);
+            if (playerRb != null && playerRb.linearVelocity.y <= 0)
+            {
+                // Disable MonsterDamage temporarily
+                MonsterDamage bodyDamage = transform.parent.GetComponent<MonsterDamage>();
+                if (bodyDamage != null)
+                {
+                    bodyDamage.hasBeenStomped = true;
+                }
+
+                gameManager.AddPoints(5);
+
+                // Destroy enemy
+                Destroy(transform.parent.gameObject);
+
+                // Bounce the player upward
+                playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
+                Debug.Log("Stomp success!");
+            }
         }
     }
 }
