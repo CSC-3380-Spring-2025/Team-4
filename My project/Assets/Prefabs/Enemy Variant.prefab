@@ -61,8 +61,12 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3534695200447262767, guid: 0ff480a8cbb8caa4aa484584b7dbaeaa, type: 3}
+      propertyPath: patrolSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534695200447262767, guid: 0ff480a8cbb8caa4aa484584b7dbaeaa, type: 3}
       propertyPath: detectionRange
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5043546550851850823, guid: 0ff480a8cbb8caa4aa484584b7dbaeaa, type: 3}
       propertyPath: m_LocalScale.x
@@ -178,4 +182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87caf38182628d946a177efb441aef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   health: 1
