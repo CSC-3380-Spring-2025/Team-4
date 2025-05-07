@@ -3,9 +3,9 @@ using UnityEngine;
 public class MonsterDamage : MonoBehaviour
 {
 
-    private int damage = 2;
-    private float knockbackDistance = 1.5f;
-    private float enemyRecoilDistance = 1.5f;
+    public int damage = 2;
+    public float knockbackDistance = 1.5f;
+    public float enemyRecoilDistance = 1.5f;
 
     [HideInInspector] public bool hasBeenStomped = false;
 

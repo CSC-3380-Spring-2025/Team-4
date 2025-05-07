@@ -4,9 +4,9 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour
 {
 
-    private float patrolSpeed = 2f;
-    private float chaseSpeed = 4f;
-    private float detectionRange = 5f;
+    public float patrolSpeed = 2f;
+    public float chaseSpeed = 4f;
+    public float detectionRange = 5f;
 
     public Transform pointA;
     public Transform pointB;
