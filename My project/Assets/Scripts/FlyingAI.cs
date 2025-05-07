@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FlyingEnemyAI : MonoBehaviour
 {
+
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float detectionRange = 7f;
@@ -12,17 +13,19 @@ public class FlyingEnemyAI : MonoBehaviour
     public Transform player;
 
     private Vector3 currentTarget;
-    private Rigidbody2D rb;
-    private bool chasingPlayer = false;
+
+    private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
+
+    private bool chasingPlayer = false;
 
     private bool isKnockedBack = false;
     private float knockbackTimer = 0f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; // Prevent gravity from pulling the flying enemy down
+        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody.gravityScale = 0f;
         spriteRenderer = transform.Find("Graphics")?.GetComponent<SpriteRenderer>();
         currentTarget = pointB.position;
     }
@@ -44,7 +47,9 @@ public class FlyingEnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isKnockedBack) return;
+        if (isKnockedBack) {
+            return;
+        }
 
         if (chasingPlayer)
         {
@@ -59,7 +64,7 @@ public class FlyingEnemyAI : MonoBehaviour
     void Patrol()
     {
         Vector2 direction = (currentTarget - transform.position).normalized;
-        rb.linearVelocity = direction * patrolSpeed;
+        rigidBody.linearVelocity = direction * patrolSpeed;
         FlipSprite(direction.x);
 
         if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
@@ -71,7 +76,7 @@ public class FlyingEnemyAI : MonoBehaviour
     void ChasePlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = direction * chaseSpeed;
+        rigidBody.linearVelocity = direction * chaseSpeed;
         FlipSprite(direction.x);
     }
 
@@ -108,4 +113,5 @@ public class FlyingEnemyAI : MonoBehaviour
         transform.position = targetPos;
         isKnockedBack = false;
     }
+    
 }

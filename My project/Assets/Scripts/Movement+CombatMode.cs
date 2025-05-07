@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CombatMode : MonoBehaviour
 {
+
     [Header("Movement")]
     public float skateboardSpeed = 10f;
     public float combatSpeed = 4f;
@@ -31,13 +32,26 @@ public class CombatMode : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null) Debug.LogError("Missing Rigidbody2D!");
-        if (animator == null) animator = GetComponent<Animator>();
-        if (animator == null) Debug.LogWarning("Missing Animator!");
+        if (rb == null) 
+        {
+            Debug.LogError("Missing Rigidbody2D!");
+        }
+
+        if (animator == null) 
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (animator == null) 
+        {
+            Debug.LogWarning("Missing Animator!");
+        }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
 
         currentSpeed = skateboardSpeed;
     }
@@ -53,23 +67,34 @@ public class CombatMode : MonoBehaviour
         HandlePauseInput();
 
 
-        if (GameManager.isPaused) return;
+        if (GameManager.isPaused) 
+        {
+            return;
+        }
 
         HandleModeSwitch();
         HandleAttack();
         HandleJump();
-        //HandleAnimatorInput();
         Move();
 
-        if (transform.position.y < 36f) Die();
+        if (transform.position.y < 36f) 
+        {
+            Die();
+        }
     }
 
     private void HandlePauseInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.isPaused) gameManager.ResumeGame();
-            else gameManager.PauseGame();
+            if (GameManager.isPaused) 
+            {
+                gameManager.ResumeGame();
+            }
+            else
+            {
+                gameManager.PauseGame();
+            }
         }
     }
 
@@ -100,7 +125,6 @@ public class CombatMode : MonoBehaviour
         if (inCombatMode && Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetTrigger("Attack");
-            
         }
     }
 
@@ -129,7 +153,7 @@ public class CombatMode : MonoBehaviour
     private void Move()
     {
         float moveX = Input.GetAxis("Horizontal");
-        Debug.Log("moveX: " + moveX); // Debug to check if input is detected
+        Debug.Log("moveX: " + moveX);
         rb.linearVelocity = new Vector2(moveX * currentSpeed, rb.linearVelocity.y);
         animator.SetFloat("Speed", Mathf.Abs(moveX));
 
@@ -189,10 +213,12 @@ public class CombatMode : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (currentAttackPoint == null) return;
+        if (currentAttackPoint == null)
+        {
+            return;
+        } 
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(currentAttackPoint.transform.position, radius, enemies);
-
         foreach (Collider2D hit in hits)
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
@@ -204,6 +230,5 @@ public class CombatMode : MonoBehaviour
             }
         }
     }
-
    
 }

@@ -3,18 +3,21 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float patrolSpeed = 2f;
-    public float chaseSpeed = 4f;
-    public float detectionRange = 5f;
+
+    private float patrolSpeed = 2f;
+    private float chaseSpeed = 4f;
+    private float detectionRange = 5f;
 
     public Transform pointA;
     public Transform pointB;
     public Transform player;
 
     private Vector3 currentTarget;
+
     private Rigidbody2D rb;
-    private bool chasingPlayer = false;
     private SpriteRenderer spriteRenderer;
+
+    private bool chasingPlayer = false;
 
     private bool isKnockedBack = false;
     private float knockbackTimer = 0f;
@@ -107,4 +110,5 @@ public class EnemyAI : MonoBehaviour
         transform.position = targetPos;
         isKnockedBack = false;
     }
+    
 }

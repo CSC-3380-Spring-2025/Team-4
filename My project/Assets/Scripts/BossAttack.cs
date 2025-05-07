@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+
     public GameObject fireballPrefab;
     public Transform firePoint;
     public Transform player;
-    public float attackRange = 7f;
-    public float fireballSpeed = 5f;
 
+    public float attackRange = 7f;
+    private float attackTimer = 0f;
     public float normalAttackCooldown = 2f;
     public float fastAttackCooldown = 1f;
+    
+    public float fireballSpeed = 5f;
     public int normalFireballCount = 1;
     public int fastFireballCount = 3;
-    public float spreadAngle = 30f; // Angle range for multiple fireballs
+    public float spreadAngle = 30f;
 
-    private float attackTimer = 0f;
+
     private BossPatrol bossPatrol;
 
     void Start()
@@ -28,7 +31,10 @@ public class BossAttack : MonoBehaviour
 
     void Update()
     {
-        if (player == null || bossPatrol == null) return;
+        if (player == null || bossPatrol == null)
+        {
+            return;
+        }
 
         attackTimer += Time.deltaTime;
 
@@ -45,7 +51,6 @@ public class BossAttack : MonoBehaviour
     }
 
     void Attack()
-
     {
         Debug.Log("Boss is attacking!");
 
@@ -79,4 +84,5 @@ public class BossAttack : MonoBehaviour
             rb.linearVelocity = direction * fireballSpeed;
         }
     }
+    
 }

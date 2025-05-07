@@ -7,8 +7,6 @@ public class MainMenu : MonoBehaviour
     public GameObject levelOneButton;
     public GameObject levelTwoButton;
     public GameObject levelThreeButton;
-    
-    //[SerializeField] string goToLevelName;
 
     public void LevelOne()
     {
@@ -29,4 +27,5 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }

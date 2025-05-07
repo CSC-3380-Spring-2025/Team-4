@@ -3,17 +3,18 @@ using System.Collections;
 
 public class HeavyEnemyAI : MonoBehaviour
 {
+
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float detectionRange = 5f;
-
+    private bool chasingPlayer = false;
+    
     public Transform pointA;
     public Transform pointB;
     public Transform player;
-
     private Vector3 currentTarget;
-    private Rigidbody2D rb;
-    private bool chasingPlayer = false;
+
+    private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
 
     private bool isKnockedBack = false;
@@ -21,7 +22,7 @@ public class HeavyEnemyAI : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = transform.Find("Graphics")?.GetComponent<SpriteRenderer>();
         currentTarget = pointB.position;
     }
@@ -43,7 +44,10 @@ public class HeavyEnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isKnockedBack) return;
+        if (isKnockedBack) 
+        {
+            return;
+        }
 
         if (chasingPlayer)
         {
@@ -58,7 +62,7 @@ public class HeavyEnemyAI : MonoBehaviour
     void Patrol()
     {
         Vector2 direction = (currentTarget - transform.position).normalized;
-        rb.linearVelocity = new Vector2(direction.x * patrolSpeed, rb.linearVelocity.y);
+        rigidBody.linearVelocity = new Vector2(direction.x * patrolSpeed, rigidBody.linearVelocity.y);
         FlipSprite(direction.x);
 
         if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
@@ -70,27 +74,27 @@ public class HeavyEnemyAI : MonoBehaviour
     void ChasePlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = new Vector2(direction.x * chaseSpeed, rb.linearVelocity.y);
+        rigidBody.linearVelocity = new Vector2(direction.x * chaseSpeed, rigidBody.linearVelocity.y);
         FlipSprite(direction.x);
     }
 
     void FlipSprite(float moveX)
     {
-    if (Mathf.Abs(moveX) > 0.05f)
-    {
-        Vector3 scale = transform.localScale;
-        scale.x = moveX > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-        transform.localScale = scale;
-    }
+        if (Mathf.Abs(moveX) > 0.05f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = moveX > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
     }
 
     public void RecoilFromContact(Vector2 hitFromDirection, float distance)
     {
         Vector2 knockbackDir = (transform.position - (Vector3)hitFromDirection).normalized;
-        StartCoroutine(SmoothRecoil(knockbackDir, distance, 0.15f));
+        StartCoroutine(iSmoothRecoil(knockbackDir, distance, 0.15f));
     }
 
-    private IEnumerator SmoothRecoil(Vector2 direction, float distance, float duration)
+    private IEnumerator iSmoothRecoil(Vector2 direction, float distance, float duration)
     {
         isKnockedBack = true;
         knockbackTimer = duration;
@@ -109,4 +113,5 @@ public class HeavyEnemyAI : MonoBehaviour
         transform.position = targetPos;
         isKnockedBack = false;
     }
+
 }

@@ -1,11 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    //public static GameManager instance;
 
     [Header("UI Refs:")]
     public GameObject gameOverPanel;
@@ -20,17 +18,27 @@ public class GameManager : MonoBehaviour
 
     public static bool isPaused = false;
 
-    private void Awake()
-    {
-        //instance = this;
-    }
-
     private void Start()
     {
-        if (gameOverPanel != null) gameOverPanel.SetActive(false);
-        if (pauseGamePanel != null) pauseGamePanel.SetActive(false);
-        if (healthBar != null) healthBar.SetActive(true);
-        if (pointsPanel != null) pointsPanel.SetActive(true);
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+
+        if (pauseGamePanel != null)
+        {
+            pauseGamePanel.SetActive(false);
+        } 
+
+        if (healthBar != null)
+        {
+            healthBar.SetActive(true);
+        } 
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(true);
+        }
 
         points = PlayerPrefs.HasKey("Points") ? PlayerPrefs.GetFloat("Points") : 0;
         ResumeGame();
@@ -51,9 +59,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (healthBar != null) healthBar.SetActive(false);
-        if (pointsPanel != null) pointsPanel.SetActive(false);
-        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        if (healthBar != null) 
+        {
+            healthBar.SetActive(false);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(false);
+        }
+
+        if (gameOverPanel != null) 
+        {
+            gameOverPanel.SetActive(true);
+        }
+
         gameOverPointsText.text = points.ToString();
     }
 
@@ -66,16 +86,32 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        if (pauseGamePanel != null) pauseGamePanel.SetActive(true);
-        if (pointsPanel != null) pointsPanel.SetActive(false);
+        if (pauseGamePanel != null) 
+        {
+            pauseGamePanel.SetActive(true);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(false);
+        }
+
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
-        if (pauseGamePanel != null) pauseGamePanel.SetActive(false);
-        if (pointsPanel != null) pointsPanel.SetActive(true);
+        if (pauseGamePanel != null) 
+        {
+            pauseGamePanel.SetActive(false);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(true);
+        }
+
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -110,4 +146,5 @@ public class GameManager : MonoBehaviour
         pointsText.text = points.ToString();
         PlayerPrefs.SetFloat("Points", points);
     }
+    
 }

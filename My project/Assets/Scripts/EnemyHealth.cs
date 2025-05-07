@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+
     [SerializeField] private GameManager gameManager;
-   public int health = 1;
+
+    public int health = 1;
 
     public void TakeDamage(int damage)
     {
@@ -16,7 +18,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        // Death animation, sound, etc.
         gameManager.AddPoints(10);
         Destroy(gameObject);
     }

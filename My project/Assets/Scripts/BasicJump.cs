@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class BasicJump : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 12f;
-
+    
     private Rigidbody2D rb;
+
+    private float moveSpeed = 5f;
+    private float jumpForce = 12f;
+
     private bool isGrounded;
 
     void Start()
@@ -15,11 +17,9 @@ public class BasicJump : MonoBehaviour
 
     void Update()
     {
-        // Basic left/right movement
         float moveX = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
 
-        // Jump if grounded
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -45,4 +45,5 @@ public class BasicJump : MonoBehaviour
             Debug.Log("Left Ground");
         }
     }
+    
 }
