@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BossStomp : MonoBehaviour
 {
+
     [SerializeField] private GameManager gameManager;
 
     public float bounceForce = 12f;
@@ -15,10 +16,8 @@ public class BossStomp : MonoBehaviour
 
             if (playerRb != null && playerRb.linearVelocity.y <= 0)
             {
-                // Bounce the player upward
                 playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
 
-                // Apply damage to the boss
                 BossHealth bossHealth = transform.parent.GetComponent<BossHealth>();
                 if (bossHealth != null)
                 {
@@ -29,4 +28,5 @@ public class BossStomp : MonoBehaviour
             }
         }
     }
+
 }

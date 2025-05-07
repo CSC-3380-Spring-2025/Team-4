@@ -30,6 +30,7 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         gameManager.AddPoints(1000);
-        Destroy(gameObject); // You can trigger animations or events here instead
+        Destroy(gameObject);
     }
+    
 }

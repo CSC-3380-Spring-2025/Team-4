@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+
     public float lifetime = 5f;
     public int damage = 1;
 
@@ -38,4 +39,5 @@ public class Fireball : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }

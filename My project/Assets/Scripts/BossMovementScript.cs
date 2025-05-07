@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class BossPatrol : MonoBehaviour
 {
-    public Transform[] patrolPoints; // Assign 3 patrol points in the Inspector
+
+    public Transform[] patrolPoints;
+
     public float normalSpeed = 2f;
     public float fastSpeed = 4f;
+    private float currentSpeed;
+    private bool isSpeedingUp = false;
 
     private int currentPointIndex = 0;
     private int patrolCycleCount = 0;
-    private float currentSpeed;
-    private bool isSpeedingUp = false;
     private int stepsInCycle = 0;
 
     private SpriteRenderer spriteRenderer;
 
     public bool IsSpeedingUp()
     {
-    return isSpeedingUp;
+        return isSpeedingUp;
     }
-
 
     void Start()
     {
@@ -52,14 +53,13 @@ public class BossPatrol : MonoBehaviour
 
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
         {
-            // Handle sprite flipping
             if (currentPointIndex == 0)
             {
-                spriteRenderer.flipX = true; // face right at Point A
+                spriteRenderer.flipX = true;
             }
             else if (currentPointIndex == 1 && GetNextIndex() == 2)
             {
-                spriteRenderer.flipX = false; // face left going from B to C
+                spriteRenderer.flipX = false;
             }
 
             currentPointIndex = GetNextIndex();
@@ -70,7 +70,6 @@ public class BossPatrol : MonoBehaviour
                 patrolCycleCount++;
                 stepsInCycle = 0;
 
-                // Switch speed for the next cycle
                 if (!isSpeedingUp && patrolCycleCount % 2 == 1)
                 {
                     currentSpeed = fastSpeed;
@@ -89,4 +88,5 @@ public class BossPatrol : MonoBehaviour
     {
         return (currentPointIndex + 1) % patrolPoints.Length;
     }
+    
 }
