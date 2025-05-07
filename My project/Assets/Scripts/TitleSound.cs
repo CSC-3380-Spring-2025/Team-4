@@ -1,20 +1,21 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TitleSoundController : MonoBehaviour
 {
+
     public AudioSource firstSoundEffect;
     public AudioSource secondSoundEffect;
     public TextMeshProUGUI startText;
 
     void Start()
     {
-        StartCoroutine(PlaySoundsAndShowText());
+        startText.gameObject.SetActive(false);
+        StartCoroutine(iPlaySoundsAndShowText());
     }
 
-    IEnumerator PlaySoundsAndShowText()
+    IEnumerator iPlaySoundsAndShowText()
     {
         if (firstSoundEffect != null)
         {
@@ -31,11 +32,11 @@ public class TitleSoundController : MonoBehaviour
         if (startText != null)
         {
             startText.gameObject.SetActive(true);
-            StartCoroutine(BlinkText());
+            StartCoroutine(iBlinkText());
         }
     }
 
-    IEnumerator BlinkText()
+    IEnumerator iBlinkText()
     {
         while (true)
         {
@@ -49,7 +50,8 @@ public class TitleSoundController : MonoBehaviour
     void Update() {
     if (startText != null && startText.gameObject.activeSelf && Input.anyKeyDown) {
         StopAllCoroutines();
-        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+        SceneController.instance.NextLevel();
         }
     }
+    
 }

@@ -1,60 +1,150 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    [Header("UI Refs:")]
     public GameObject gameOverPanel;
     public GameObject pauseGamePanel;
     public GameObject healthBar;
-    private SpriteMovement player;
+    public GameObject pointsPanel;
+
+    [Header("Points:")]
+    [SerializeField] private TMP_Text pointsText;
+    [SerializeField] private TMP_Text gameOverPointsText;
+    private float points;
+
     public static bool isPaused = false;
-    public void Start()
+
+    private void Start()
     {
-        gameOverPanel.gameObject.SetActive(false);
-        pauseGamePanel.gameObject.SetActive(false);
-        healthBar.gameObject.SetActive(true);
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+
+        if (pauseGamePanel != null)
+        {
+            pauseGamePanel.SetActive(false);
+        } 
+
+        if (healthBar != null)
+        {
+            healthBar.SetActive(true);
+        } 
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(true);
+        }
+
+        points = PlayerPrefs.HasKey("Points") ? PlayerPrefs.GetFloat("Points") : 0;
+        ResumeGame();
     }
 
-     public void Update()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseGamePanel == null) return;
 
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseGame();
+        }
     }
 
-    public void GameOver() 
+    public void GameOver()
     {
-        //Calc score
-        healthBar.SetActive(false);
-        gameOverPanel.SetActive(true);
+        if (healthBar != null) 
+        {
+            healthBar.SetActive(false);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(false);
+        }
+
+        if (gameOverPanel != null) 
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        gameOverPointsText.text = points.ToString();
     }
 
     public void RestartGame()
     {
+        PlayerPrefs.SetFloat("Points", 0);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
     public void PauseGame()
     {
-        pauseGamePanel.SetActive(true);
+        if (pauseGamePanel != null) 
+        {
+            pauseGamePanel.SetActive(true);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(false);
+        }
+
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
-        pauseGamePanel.SetActive(false);
+        if (pauseGamePanel != null) 
+        {
+            pauseGamePanel.SetActive(false);
+        }
+
+        if (pointsPanel != null) 
+        {
+            pointsPanel.SetActive(true);
+        }
+
         Time.timeScale = 1f;
         isPaused = false;
     }
 
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        else
+        {
+            Debug.Log("No more levels to load!");
+        }
+    }
+
     public void GoToMainMenu()
     {
-        ResumeGame();
         SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteKey("Points");
         Application.Quit();
     }
+
+    public void AddPoints(float pointsToAdd)
+    {
+        points += pointsToAdd;
+        pointsText.text = points.ToString();
+        PlayerPrefs.SetFloat("Points", points);
+    }
+    
 }
