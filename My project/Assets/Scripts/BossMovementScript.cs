@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class BossPatrol : MonoBehaviour
 {
-
-    public Transform[] patrolPoints;
-
-    private float normalSpeed = 2f;
-    private float fastSpeed = 4f;
-    private float currentSpeed;
-    private bool isSpeedingUp = false;
+    public Transform[] patrolPoints; // Assign 3 patrol points in the Inspector
+    public float normalSpeed = 2f;
+    public float fastSpeed = 4f;
 
     private int currentPointIndex = 0;
     private int patrolCycleCount = 0;
+    private float currentSpeed;
+    private bool isSpeedingUp = false;
     private int stepsInCycle = 0;
 
     private SpriteRenderer spriteRenderer;
+
+    public bool IsSpeedingUp()
+    {
+    return isSpeedingUp;
+    }
+
 
     void Start()
     {
@@ -41,11 +45,6 @@ public class BossPatrol : MonoBehaviour
         Patrol();
     }
 
-    public bool IsSpeedingUp()
-    {
-        return isSpeedingUp;
-    }
-
     void Patrol()
     {
         Transform targetPoint = patrolPoints[currentPointIndex];
@@ -53,23 +52,25 @@ public class BossPatrol : MonoBehaviour
 
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
         {
+            // Handle sprite flipping
             if (currentPointIndex == 0)
             {
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = true; // face right at Point A
             }
             else if (currentPointIndex == 1 && GetNextIndex() == 2)
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = false; // face left going from B to C
             }
 
             currentPointIndex = GetNextIndex();
-
             stepsInCycle++;
+
             if (stepsInCycle >= patrolPoints.Length)
             {
                 patrolCycleCount++;
                 stepsInCycle = 0;
 
+                // Switch speed for the next cycle
                 if (!isSpeedingUp && patrolCycleCount % 2 == 1)
                 {
                     currentSpeed = fastSpeed;
@@ -88,5 +89,4 @@ public class BossPatrol : MonoBehaviour
     {
         return (currentPointIndex + 1) % patrolPoints.Length;
     }
-    
 }

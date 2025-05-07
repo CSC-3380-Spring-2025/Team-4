@@ -1,18 +1,25 @@
 using UnityEngine;
-
+// used to deal damage to the players
 public class Damage : MonoBehaviour
 {
-
-    private PlayerHealth playerHealth;
-
+    public PlayerHealth pHealth;
     public float damage;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHealth.health -= damage;
-        }
+        
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
+        }
+    }
 }

@@ -4,11 +4,11 @@ public class BossHealth : MonoBehaviour
 {
 
     [SerializeField] private GameManager gameManager;
-
     public int MaxHealth => maxHealth;
-    private int maxHealth = 10;
     public int CurrentHealth => currentHealth;
-    private int currentHealth; 
+
+    public int maxHealth = 10;
+    private int currentHealth;
 
     void Start()
     {
@@ -19,6 +19,7 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log("Boss took damage! Current HP: " + currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -29,7 +30,6 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         gameManager.AddPoints(1000);
-        Destroy(gameObject);
+        Destroy(gameObject); // You can trigger animations or events here instead
     }
-
 }
