@@ -3,9 +3,8 @@ using UnityEngine.UI;
 
 public class BossHealthBar : MonoBehaviour
 {
-
-    private BossHealth bossHealth;
-    private Image healthFill;
+    public BossHealth bossHealth;
+    public Image healthFill;
 
     void Update()
     {
@@ -13,6 +12,8 @@ public class BossHealthBar : MonoBehaviour
         {
             healthFill.fillAmount = (float)bossHealth.CurrentHealth / bossHealth.MaxHealth;
         }
+
+        // Optional: rotate to face camera if using 3D
+        // transform.rotation = Quaternion.identity;
     }
-    
 }
