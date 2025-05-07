@@ -7,27 +7,33 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] Image soundOnIcon;
     [SerializeField] Image soundOffIcon;
+
     private bool muted = false;
 
     void Start()
     {
-        if(!PlayerPrefs.HasKey("muted")){
+        if (!PlayerPrefs.HasKey("muted"))
+        {
             PlayerPrefs.SetInt("muted",0);
             Load();
         }
-        else{
+        else
+        {
             Load();
         }
+
         UpdateButtonIcon();
         AudioListener.pause = muted;
     }
 
-    public void OnButtonPress(){
+    public void OnButtonPress()
+    {
         if(muted == false){
             muted = true;
             AudioListener.pause = true;
         }
-        else{
+        else
+        {
             muted = false;
             AudioListener.pause = false;
         }
@@ -36,12 +42,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         UpdateButtonIcon();
     }
 
-    private void UpdateButtonIcon(){
+    private void UpdateButtonIcon()
+    {
         if(muted == false){
             soundOnIcon.enabled = true;
             soundOffIcon.enabled = false;
         }
-        else{
+        else
+        {
             soundOnIcon.enabled = false;
             soundOffIcon.enabled = true;
         }
@@ -55,8 +63,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetInt("muted", muted ? 1 : 0);
-
     }
-
 
 }

@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class MonsterDamage : MonoBehaviour
 {
-    public int damage = 2;
-    public float knockbackDistance = 1.5f;
-    public float enemyRecoilDistance = 1.5f;
+
+    private int damage = 2;
+    private float knockbackDistance = 1.5f;
+    private float enemyRecoilDistance = 1.5f;
 
     [HideInInspector] public bool hasBeenStomped = false;
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (hasBeenStomped) return; // 🛡 Skip if stomped
+        if (hasBeenStomped)
+        {
+            return;
+        } 
 
-        if (collision.collider.CompareTag("EnemyHead")) return;
+        if (collision.collider.CompareTag("EnemyHead")) 
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -31,4 +38,5 @@ public class MonsterDamage : MonoBehaviour
             }
         }
     }
+    
 }

@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Numerics;
 using UnityEngine;
 
 public class ScrollingCamera : MonoBehaviour
 {
     public Transform player;
+
     private float followSpeed = 2f;
     private bool fallBehindCam = false;
-
-    void Start() {}
 
     void Update() {
         if (player && !fallBehindCam)

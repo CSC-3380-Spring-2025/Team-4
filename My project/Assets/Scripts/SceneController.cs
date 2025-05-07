@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+
     public static SceneController instance;
-    [SerializeField] Animator transitionAnim;
+    [SerializeField] private Animator transitionAnim;
 
     private void Awake()
     {
@@ -19,17 +20,18 @@ public class SceneController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void NextLevel()
     {
-        StartCoroutine(LoadNextLevel());
+        StartCoroutine(iLoadNextLevel());
     }
 
     public void SpecifiedLevel(string sceneName)
     {
-        StartCoroutine(LoadSpecifiedLevel(sceneName));
+        StartCoroutine(iLoadSpecifiedLevel(sceneName));
     }
     
-    IEnumerator LoadSpecifiedLevel(string sceneName)
+    IEnumerator iLoadSpecifiedLevel(string sceneName)
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
@@ -38,7 +40,7 @@ public class SceneController : MonoBehaviour
         transitionAnim.SetTrigger("Start");
     }
 
-    IEnumerator LoadNextLevel()
+    IEnumerator iLoadNextLevel()
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
@@ -46,4 +48,5 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         transitionAnim.SetTrigger("Start");
     }
+    
 }

@@ -4,18 +4,23 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+
     public float health;
     public float maxHealth;
     public Image healthmeter;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
     private float lastDamageTime = -Mathf.Infinity;
-    public float damageCooldown = 1f;
+    private float damageCooldown = 1f;
 
     void Start()
     {
-    if (maxHealth <= 0) maxHealth = health;
-    healthmeter.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        if (maxHealth <= 0) 
+        {
+            maxHealth = health;
+        }
+
+        healthmeter.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
     }
     public void TakeDamage(int damage)
     {
@@ -25,7 +30,9 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamageWithKnockback(int damage, Vector2 hitFromDirection, float distance)
     {
         if (Time.time - lastDamageTime < damageCooldown)
+        {
             return;
+        }
 
         lastDamageTime = Time.time;
         health -= damage;
@@ -70,4 +77,5 @@ public class PlayerHealth : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    
 }

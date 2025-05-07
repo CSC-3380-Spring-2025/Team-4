@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class MonsterStomp : MonoBehaviour
 {
+
     [SerializeField] private GameManager gameManager;
 
-    public float bounceForce = 12f;
+    private float bounceForce = 12f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,7 +15,6 @@ public class MonsterStomp : MonoBehaviour
 
             if (playerRb != null && playerRb.linearVelocity.y <= 0)
             {
-                // Disable MonsterDamage temporarily
                 MonsterDamage bodyDamage = transform.parent.GetComponent<MonsterDamage>();
                 if (bodyDamage != null)
                 {
@@ -23,13 +23,12 @@ public class MonsterStomp : MonoBehaviour
 
                 gameManager.AddPoints(5);
 
-                // Destroy enemy
                 Destroy(transform.parent.gameObject);
 
-                // Bounce the player upward
                 playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
                 Debug.Log("Stomp success!");
             }
         }
     }
+    
 }
