@@ -1,4 +1,3 @@
-Title-Screen
 # [HellSkate] : [Team 4]
 # Members
 Project Manager: [Jack Dugan] ([jdugan415])\
@@ -6,7 +5,6 @@ Communications Lead: [Jude Menard] ([JudeMen])\
 Git Master: [Andrew Mallory] ([andrewmallory8])\
 Design Lead: [Aaron Arceneaux] ([Noraaxu])\
 Quality Assurance Tester: [John Holcomb] ([johnholcomb10])
-main
 
 # About Our Software
 
@@ -18,7 +16,7 @@ Describe a little about what the project is about here.
 - Linux
 - Windows
 # Important Links
-Kanban Board: (https://github.com/orgs/CSC-3380-Spring-2025/projects/1)\
+Kanban Board: [link]\
 Designs: [link]\
 Styles Guide(s): [link]
 
