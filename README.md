@@ -15,7 +15,7 @@ This is the semester-long project for Team 4, "Hellskate." The project was creat
 - Right - D/Right Arrow
 - Jump - Spacebar
 - Enter/Exit Combat Mode - X
-- Attack (while in Combat Mode) - Z
+- Attack (while in Combat Mode) - Z (hold)
 - Pause Game - Esc
 
 ## Platforms Tested on
