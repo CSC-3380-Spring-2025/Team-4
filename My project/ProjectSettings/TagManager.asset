@@ -7,17 +7,20 @@ TagManager:
   - Ground
   - Weak Point
   - SpeedUp
+  - Enemy
+  - HealthUp
+  - EnemyHead
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - -1
-  - 
-  - 
-  - 
+  - 1
+  - EnemyHead
+  - Enemy
+  - Fireball
   - 
   - 
   - 
